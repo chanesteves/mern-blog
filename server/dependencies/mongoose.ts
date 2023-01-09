@@ -1,11 +1,12 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
+import getConfig from "../config";
 
-const URI = process.env.MONGODB_URL
+const config = getConfig();
 
-mongoose.connect(`${URI}`, {}, (err) => {
-    if (err) {
-        throw err
-    }
+mongoose.connect(config.server.services.mongoose.mongodb_url, {}, (err) => {
+  if (err) {
+    throw err;
+  }
 
-    console.log("MongoDB connected!")
-})
+  console.log("MongoDB connected!");
+});
